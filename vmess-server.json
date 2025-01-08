@@ -1,7 +1,5 @@
 {
   "log": {
-    //"access": "/var/log/v2ray/access.log",
-    //"error": "/var/log/v2ray/error.log",
     "loglevel": "warning"
   },
   "inbounds": [
@@ -17,45 +15,16 @@
             "alterId": 0
           }
         ],
-        "disableInsecureEncryption": false
+        "disableInsecureEncryption": true
       },
       "streamSettings": {
-        "network": "tcp",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/etc/v2ray/xray.crt",
-              "keyFile": "/etc/v2ray/xray.key"
-            }
-          ]
-        }
+        "network": "ws",
       }
     }
   ],
   "outbounds": [
     {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
+      "protocol": "freedom"
     }
-  ],
-  "routing": {
-    "strategy": "rules",
-    "settings": {
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "blocked"
-        }
-      ]
-    }
-  }
+  ]
 }
