@@ -6,6 +6,10 @@
 app = 'v2fly-aussie'
 primary_region = 'syd'
 
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
 [build]
 
 [[services]]
